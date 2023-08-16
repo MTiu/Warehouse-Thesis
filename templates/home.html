@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>TEST DATA</h1>
+
+    <script>
+        $(document).ready(() => {
+            let data = {
+                test_data: [
+                    [50, 1, 1],
+                    [49, 1, 2],
+                    [40, 5, 0],
+                    [34, 2, 0],
+                    [34, 4, 0],
+                    [105, 5, 0],
+                ]
+            }
+
+
+            $.post('/get-data', JSON.stringify(data), (response) => {
+                console.log(response);
+                $('.data').html(response);
+            }); 
+        });
+    </script>
+
+    <div class="data"></div>
+</body>
+</html>
