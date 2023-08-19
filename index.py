@@ -564,7 +564,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home_page():
-    return render_template('home.html', new_data=new_data)
+    return render_template('home.html')
+
+@app.route("/get-clusters", methods = ["POST"])
+def getClusters():
+    return json.dumps({"data": new_data.tolist(), "quadrant": predicted_categories.tolist()})
 
 @app.route("/insert")
 def insert_page():
