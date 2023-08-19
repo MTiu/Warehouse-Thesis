@@ -563,8 +563,16 @@ centroids = kmeans_model.centroids
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return render_template('home.html')
+def home_page():
+    return render_template('home.html', new_data=new_data)
+
+@app.route("/insert")
+def insert_page():
+    return render_template('insert.html')
+
+@app.route("/FAQS")
+def FAQS_page():
+    return render_template('FAQS.html')
 
 @app.route("/get-data", methods = ["GET", "POST"])
 def getData():

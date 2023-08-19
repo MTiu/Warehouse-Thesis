@@ -1,35 +1,209 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warehouse Manager</title>
+    <link rel="stylesheet" href="static/styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-</head>
-<body>
-    <h1>TEST DATA</h1>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="items">
+        <img src="static/images/rewards.png" alt="Manage" />
+        <p>Manage</p>
+      </div>
+      <div class="items">
+        <img src="static/images/rewards.png" alt="Insert" />
+        <p>Insert</p>
+      </div>
+      <div class="items">
+        <img src="static/images/rewards.png" alt="FAQS" />
+        <p>FAQS</p>
+      </div>
+    </div>
 
+    <div class="container">
+      <div id="section1">
+        <header>
+          <h2>Quadrants</h2>
+          <h3>DD/MM/YY</h3>
+          <button>
+            <span class="box"> Show all </span>
+          </button>
+          <div class="form-control">
+            <input type="value" required="" />
+            <label>
+              <span style="transition-delay: 0ms">S</span
+              ><span style="transition-delay: 50ms">e</span
+              ><span style="transition-delay: 100ms">a</span
+              ><span style="transition-delay: 150ms">r</span
+              ><span style="transition-delay: 200ms">c</span
+              ><span style="transition-delay: 250ms">h</span>
+            </label>
+          </div>
+        </header>
+        <div class="itemTable">
+          <table>
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody id="item-list">
+              {% for item in new_data %}
+              <tr>
+                <td>Name of Item</td>
+                <td>{{item[0]}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="section2">
+        <h2>Quadrant Usage</h2>
+        <div class="itemMeterSection">
+          <div class="itemMeter">
+            <div class="outer">
+              <div class="inner">
+                <div id="innerNumber">65%</div>
+              </div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="GradientColor">
+                  <stop offset="0%" stop-color="#e91e63" />
+                  <stop offset="100%" stop-color="#673ab7" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <div class="itemMeterProgress">
+            <div>
+              <h3>loaded</h3>
+              <h2>Space</h2>
+            </div>
+            <div>
+              <h3>Empty</h3>
+              <h2>Space</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="section3">
+        <header>
+          <h2>List of Quadrants</h2>
+          <div class="dropdown menu">
+            <h3>sort by</h3>
+          </div>
+        </header>
+
+        <form>
+          <div class="quadrantList">
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="1" /> Quadrant 1
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="2" /> Quadrant 2
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="3" /> Quadrant 3
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="4" /> Quadrant 4
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="5" /> Quadrant 5
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="6" /> Quadrant 6
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="7" /> Quadrant 7
+            </label>
+            <label class="quadrant">
+              <input type="radio" name="Quadrant" value="8" /> Quadrant 8
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div id="section4">
+        <button>
+          <span class="box"> Stored </span>
+        </button>
+        <button>
+          <span class="box"> Removed </span>
+        </button>
+        <button>
+          <span class="box"> Item History </span>
+        </button>
+        <div class="items_IPO">
+          <img src="" alt="" />
+          <h2>Item Name</h2>
+          <h3>DD/MM/YYYY</h3>
+          <h3>Quantity:</h3>
+        </div>
+        <div class="items_IPO">
+          <img src="" alt="" />
+          <h2>Item Name</h2>
+          <h3>DD/MM/YYYY</h3>
+          <h3>Quantity:</h3>
+        </div>
+        <div class="items_IPO">
+          <img src="" alt="" />
+          <h2>Item Name</h2>
+          <h3>DD/MM/YYYY</h3>
+          <h3>Quantity:</h3>
+        </div>
+        <div class="items_IPO">
+          <img src="" alt="" />
+          <h2>Item Name</h2>
+          <h3>DD/MM/YYYY</h3>
+          <h3>Quantity:</h3>
+        </div>
+        <div class="items_IPO">
+          <img src="" alt="" />
+          <h2>Item Name</h2>
+          <h3>DD/MM/YYYY</h3>
+          <h3>Quantity:</h3>
+        </div>
+        <div class="items_IPO">
+          <img src="" alt="" />
+          <h2>Item Name</h2>
+          <h3>DD/MM/YYYY</h3>
+          <h3>Quantity:</h3>
+        </div>
+      </div>
+    </div>
     <script>
-        $(document).ready(() => {
-            let data = {
-                test_data: [
-                    [50, 1, 1],
-                    [49, 1, 2],
-                    [40, 5, 0],
-                    [34, 2, 0],
-                    [34, 4, 0],
-                    [105, 5, 0],
-                ]
-            }
+      $(document).ready(() => {
+        let data = {
+          test_data: [
+            [50, 1, 1],
+            [49, 1, 2],
+            [40, 5, 0],
+            [34, 2, 0],
+            [34, 4, 0],
+            [105, 5, 0],
+          ],
+        };
 
-
-            $.post('/get-data', JSON.stringify(data), (response) => {
-                console.log(response);
-                $('.data').html(response);
-            }); 
+        $.post("/get-data", JSON.stringify(data), (response) => {
+          console.log(response);
+          $(".data").html(response);
         });
+      });
     </script>
-
-    <div class="data"></div>
-</body>
+  </body>
 </html>
