@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from flask import Flask, render_template, request, json
 
-# Define the Random Forest Classifier
+
 class RandomForestClassifier:
     def __init__(self, n_estimators=100, random_state=None):
         self.n_estimators = n_estimators
@@ -24,7 +24,7 @@ class RandomForestClassifier:
         return np.mean(predictions, axis=0)
 
 
-# Define the Decision Tree Classifier
+
 class DecisionTreeClassifier:
     def __init__(self):
         self.tree = None
@@ -87,7 +87,7 @@ class DecisionTreeClassifier:
         proportions = counts / len(y)
         return 1 - np.sum(proportions ** 2)
 
-# Define the K-Means clustering algorithm
+
 class KMeans:
     def __init__(self, n_clusters=8, max_iter=3000, random_state=None):
         self.n_clusters = n_clusters
@@ -99,7 +99,7 @@ class KMeans:
         np.random.seed(self.random_state)
 
         # Initialize centroids based on unique quantities
-        unique_quantities = np.unique(X[:, 0])  # Assuming the first column represents quantity
+        unique_quantities = np.unique(X[:, 0])  
         initial_indices = []
         for quantity in unique_quantities:
             indices = np.where(X[:, 0] == quantity)[0]
@@ -138,7 +138,7 @@ class KMeans:
 
 # Data
 data = np.array([
-   #Number 1 Feature - Quantity
+  #Number 1 Feature - Quantity
   #Number 2 Feature - Use of Material (Building Material, Tools, Plumbing, Fasteners, Others)
   #Number 3 Feature - Type of Material(0 lagay kapag di building material, Wood, Steel, Concrete, Ceramic)
   #Number 4 Feature - Location(Hidden Pang Train In short san sya)
@@ -211,7 +211,7 @@ data = np.array([
 features = data[:, :-1]
 labels = data[:, -1]
 
-# Random Forest Classifier
+
 rf_classifier = RandomForestClassifier(random_state=42)
 rf_classifier.fit(features, labels)
 
@@ -542,7 +542,6 @@ predicted_categories = rf_classifier.predict(new_data)
 data_with_categories = np.column_stack((new_data, predicted_categories))
 print(data_with_categories)
 
-# K-Means Clustering
 k_clusters = 2
 
 # Using the new_data classified by the Random Forest
@@ -578,7 +577,7 @@ def insert_page():
 def FAQS_page():
     return render_template('FAQS.html')
 
-@app.route("/get-data", methods = ["GET", "POST"])
+@app.route("/clusters", methods = ["GET", "POST"])
 def getData():
     
     # test_data = request.get_json(force = True)
