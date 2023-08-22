@@ -580,19 +580,19 @@ def FAQS_page():
 
 @app.route("/get-data", methods = ["GET", "POST"])
 def getData():
-    test_data = request.get_json(force = True)
-    print(test_data["test_data"])
-
-    new_data = np.array(test_data["test_data"])
+    
+    # test_data = request.get_json(force = True)
+    # print(test_data["test_data"])
+    # new_data = np.array(test_data["test_data"])
     # kmeans_model = KMeans(n_clusters=k_clusters, random_state=42)
     # kmeans_model.fit(new_data)
-    new_data_clusters = kmeans_model.assign_labels(new_data)
+    # new_data_clusters = kmeans_model.assign_labels(new_data)
 
     mystr = ""
     for item, cluster in zip(new_data, new_data_clusters):
         mystr += "Item: " + str(item) + ", Cluster: " + str(cluster + 1) + "<br />"
 
-    return mystr
+    return render_template("result.html", mystr=mystr)
 
 
 if __name__ == '__main__':
