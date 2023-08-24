@@ -101,8 +101,15 @@
       <div id="section3">
         <header>
           <h2>List of Quadrants</h2>
-          <div class="dropdown menu">
-            <h3>sort by</h3>
+          <div class="sortByDropdown">
+            <div class="selectSortBy">
+              <span class="selectedSortBy">Sort by</span>
+              <div class="caret"></div>
+            </div>
+            <ul class="menuSortBy">
+              <li class="activeSortBy">Highest Item Quantity</li>
+              <li class="activeSortBy">Lowest Item Quantity</li>
+            </ul>
           </div>
         </header>
 
@@ -185,6 +192,34 @@
       </div>
     </div>
     <script>
+      const dropdowns = document.querySelectorAll(".SortByDropdown");
+      dropdowns.forEach((dropdown) => {
+        const select = dropdown.querySelector(".selectSortBy");
+        const caret = dropdown.querySelector(".caret");
+        const menu = dropdown.querySelector(".menuSortBy");
+        const options = dropdown.querySelectorAll(".menuSortBy li");
+        const selected = dropdown.querySelector(".selectedSortBy");
+
+        select.addEventListener("click", () => {
+          select.classList.toggle("selectedSortBy");
+          caret.classList.toggle("caret-rotate");
+          menu.classList.toggle("menu-open");
+        });
+
+        options.forEach((option) => {
+          option.addEventListener("click", () => {
+            selected.innerText = option.innerText;
+            select.classList.remove("selectedSortBy");
+            caret.classList.remove("caret-rotate");
+            menu.classList.remove("menu-open");
+            options.forEach((option) => {
+              option.classList.remove("active");
+            });
+            option.classList.add("active");
+          });
+        });
+      });
+
       $(document).ready(() => {
         // let data = {
         //   test_data: [

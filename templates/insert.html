@@ -1,10 +1,59 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Insert</title>
+    <title>Insert Page</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   </head>
   <body>
-    <h1>INSERT PAGE</h1>
+    <div class="sidebar">
+      <a href="http://127.0.0.1:5000/">
+        <div class="items">
+          <img src="static/images/rewards.png" alt="Manage" />
+          <p>Manage</p>
+        </div>
+      </a>
+      <a href="/clusters">
+        <div class="items">
+          <img src="static/images/rewards.png" alt="Insert" />
+          <p>Insert</p>
+        </div>
+      </a>
+      <a href="/FAQS">
+        <div class="items">
+          <img src="static/images/rewards.png" alt="FAQS" />
+          <p>FAQS</p>
+        </div>
+      </a>
+    </div>
+    <div class="container">
+      <div id="section1">
+        <div class="itemTable">
+          <h1>Clusters</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>{{ myclusters | safe }}</th>
+              </tr>
+            </thead>
+            <tbody id="item-list"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="section2">
+        <div class="itemTable">
+          <h1>In need of Replenishing</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>{{ replenishClusters | safe }}</th>
+              </tr>
+            </thead>
+            <tbody id="item-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
