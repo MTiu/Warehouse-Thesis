@@ -587,12 +587,17 @@ def getData():
     # kmeans_model.fit(new_data)
     # new_data_clusters = kmeans_model.assign_labels(new_data)
 
-    mystr = ""
+    myclusters = ""
+    replenishClusters = ""
     for item, cluster in zip(new_data, new_data_clusters):
-        mystr += "Item: " + str(item) + ", Cluster: " + str(cluster + 1) + "<br />"
+        myclusters += "Item: " + str(item) + ", Cluster: " + str(cluster + 1) + "<br />"
+    for item, cluster in zip(new_data,new_data_clusters):
+        if cluster + 1 == 3:
+            replenishClusters += "Item: " + str(item) + ", Cluster: " + str(cluster + 1) + "<br />"
 
-    return render_template("result.html", mystr=mystr)
+
+    return render_template("result.html", myclusters=myclusters, replenishClusters=replenishClusters)
 
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug = True)

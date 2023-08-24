@@ -15,7 +15,7 @@
     width: max-content;
     background-color: lightblue;
 }
-    .sidebar > .items {
+    .sidebar > a > .items {
         margin-top: 20px;
         display: flex;
     }
@@ -24,14 +24,14 @@
         display: flex;
         align-items: center;
     }
-        .sidebar > .items > p {
+        .sidebar > a > .items > p {
             display: none;
             margin-left: 10px;
         }
-        .sidebar:hover > .items > p {
+        .sidebar:hover > a > .items > p {
             display: block;
         }
-        .sidebar > .items > img {
+        .sidebar > a > .items > img { 
             width: 100%;
             max-width: 50px;
         }
@@ -51,6 +51,8 @@
     }
         .container > #section1 > header{
             display: flex;
+            margin-left: 90px;
+            
         }
         .container > #section1 > .itemList{
           display: flex;
